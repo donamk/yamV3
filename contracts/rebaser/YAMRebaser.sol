@@ -723,7 +723,7 @@ contract YAMRebaser {
         blockTimestampLast = blockTimestamp;
 
         // BASE is on order of 1e18, which takes 2^60 bits
-        // multiplication will revert if priceAverage > 2^196
+        // multiplication will revert if priceAverage > 2^192
         // (which it can because it overflows intentially)
         if (priceAverage > uint192(-1)) {
            // eat loss of precision
@@ -754,7 +754,7 @@ contract YAMRebaser {
         uint256 priceAverage = uint256(uint224((priceCumulative - priceCumulativeLast) / timeElapsed));
 
         // BASE is on order of 1e18, which takes 2^60 bits
-        // multiplication will revert if priceAverage > 2^196
+        // multiplication will revert if priceAverage > 2^192
         // (which it can because it overflows intentially)
         if (priceAverage > uint192(-1)) {
             // eat loss of precision
